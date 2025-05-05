@@ -17,16 +17,15 @@
     <div class="card p-3 mb-4 h-auto w-50 d-flex flex-column">
         <h5 class="card-title text-center">{{post.title}}</h5>
         <div class="d-flex justify-content-between text-muted small mb-2">
-        <span class="badge bg-info p-2 text-black">Category:  {{post.category.name}}</span>
+        <span class="p-2 text-black">Category: <strong>{{post.category.name}}</strong></span>
         <span class="fw-bold">{{post.posted|timesince}}</span>
         </div>
         <p class="card-text">{{post.body}}</p>
         
 
         <div class="mt-auto d-flex justify-content-between">
-        <button class="btn btn-primary btn-sm w-25">Edit</button>
-        <button class="btn btn-danger btn-sm w-25">Delete</button>
-        <button class="btn btn-success btn-sm w-25">Update</button>
+        <a  class="btn btn-success btn-sm w-25" href="{% url 'update_blog' post.pk %}"><button style="background-color: transparent; border: 0; color: white;">Update</button></a>
+        <a class="btn btn-danger btn-sm w-25" href="{% url 'delete_blog' post.pk %}"><button style="background-color: transparent; border: 0; color: white;" >Delete</button></a>
         </div>
     </div>
   {% endfor %}
