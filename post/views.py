@@ -14,7 +14,7 @@ def blogs_list(request):
     query = request.GET.get('q')
     if query:
         posts = Post.objects.filter(
-            Q(title__icontains=query) | Q(body__icontains=query) | Q(category__name__icontains=query)
+            Q(title__icontains=query) | Q(category__name__icontains=query)
         )
         return render(request,'post/blogs.html',{'posts':posts})
     else:
